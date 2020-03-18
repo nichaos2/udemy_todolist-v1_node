@@ -24,36 +24,12 @@ app.listen(3000), function(){
 function myfunction(){
 
     var currentDate = new Date();
-    var currentDay = currentDate.getDay();
-    var day = '';
+    optionsDate ={
+        weekday : "long",
+        day: "numeric",
+        month: "long"
+    }
+    var day = currentDate.toLocaleDateString("en-US", optionsDate);
     
-switch (currentDay) {
-    case 0:
-        day = 'Sunday';
-        break;
-    case 1:
-        day = 'Monday';
-        break;
-    case 2:
-        day = 'Tuesday';
-        break;
-    case 3:
-        day = 'Wednesday';
-        break;
-    case 4:
-        day = 'Thursday';
-        break;
-    case 5:
-        day = 'Friday';
-        break;
-    case 6:
-        day = 'Saturday';
-        break;
-
-    default:
-        console.log("Error: current day is equal to : " + currentDay);
-        break;
-}
-
     return day
 }
