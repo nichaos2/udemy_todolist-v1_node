@@ -2,6 +2,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// import my modules
+const date = require(__dirname + "/date.js");
+
 // creating app with express integrated
 const app = express();
 
@@ -22,7 +25,7 @@ let itemsWork = [];
 
 // -- urls / methods --
 app.get('/', function (req, res){
-    day = myfunction();
+    let day = date.getDate();
 
     res.render('list', {listType : day, 
                         newItemList : items});
@@ -59,18 +62,3 @@ app.listen(3000), function(){
 }
 
 
-
-
-// -- functions --
-function myfunction(){
-
-    let currentDate = new Date();
-    optionsDate ={
-        weekday : "long",
-        day: "numeric",
-        month: "long"
-    }
-    let myday = currentDate.toLocaleDateString("en-US", optionsDate);
-    
-    return myday
-}
