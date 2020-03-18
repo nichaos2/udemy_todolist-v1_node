@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 // -- variables -- 
 
-var items = ["Buy Food", "Cook Food", "Eat Food"];
+let items = ["Buy Food", "Cook Food", "Eat Food"];
 
 // -- urls / methods --
 app.get('/', function (req, res){
@@ -27,7 +27,7 @@ app.get('/', function (req, res){
 
 
 app.post('/', function(req, res){
-    var newItem = req.body.newItem;
+    let newItem = req.body.newItem;
     items.push(newItem);
 
     res.redirect('/'); 
@@ -45,13 +45,13 @@ app.listen(3000), function(){
 // -- functions --
 function myfunction(){
 
-    var currentDate = new Date();
+    let currentDate = new Date();
     optionsDate ={
         weekday : "long",
         day: "numeric",
         month: "long"
     }
-    var myday = currentDate.toLocaleDateString("en-US", optionsDate);
+    let myday = currentDate.toLocaleDateString("en-US", optionsDate);
     
     return myday
 }
