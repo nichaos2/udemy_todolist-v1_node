@@ -8,7 +8,7 @@ const app = express();
 // integrate the body parser
 app.use(bodyParser.urlencoded({extended: true}));
 
-// integrate static files
+// integrate static files -> these are located in the folde public by convention
 app.use(express.static('public'))
 
 // import ejs - the view engine will render our templates files .ejs in the folder views
