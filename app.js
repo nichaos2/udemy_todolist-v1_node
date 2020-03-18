@@ -18,21 +18,33 @@ app.set('view engine', 'ejs');
 // -- variables -- 
 
 let items = ["Buy Food", "Cook Food", "Eat Food"];
+let itemsWork = [];
 
 // -- urls / methods --
 app.get('/', function (req, res){
     day = myfunction();
 
-    res.render('list', {kindofDay : day, 
+    res.render('list', {listType : day, 
                         newItemList : items});
 });
 
 
 app.post('/', function(req, res){
-    let newItem = req.body.newItem;
-    items.push(newItem);
 
-    res.redirect('/'); 
+    let newItem = req.body.newItem;
+    if (req.body.listButton === 'Work'){
+        itemsWork.push(newItem);
+        res.redirect('/work');
+    }else{
+        items.push(newItem);
+        res.redirect('/'); 
+    }
+});
+
+//
+app.get('/work', function (req, res){
+    res.render('list', {listType : "Work List", 
+                        newItemList : itemsWork});
 });
 
 
