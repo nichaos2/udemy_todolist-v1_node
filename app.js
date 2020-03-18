@@ -13,18 +13,24 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); 
 
 
+// -- variables -- 
+
+var items = [];
+
 // -- urls / methods --
 app.get('/', function (req, res){
     day = myfunction();
 
-    res.render('list', {kindofDay: day});
+    res.render('list', {kindofDay : day, 
+                        newItemList : items});
 });
 
 
 app.post('/', function(req, res){
     var newItem = req.body.newItem;
-    console.log(newItem);
-    res.render('list', {kindofDay: day});
+    items.push(newItem);
+
+    res.redirect('/');
 });
 
 
@@ -50,7 +56,7 @@ function myfunction(){
         day: "numeric",
         month: "long"
     }
-    var day = currentDate.toLocaleDateString("en-US", optionsDate);
+    var myday = currentDate.toLocaleDateString("en-US", optionsDate);
     
-    return day
+    return myday
 }
