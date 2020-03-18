@@ -8,8 +8,10 @@ const app = express();
 // integrate the body parser
 app.use(bodyParser.urlencoded({extended: true}));
 
-// import ejs - the view engine will render our templates
-// files .ejs in the folder views
+// integrate static files
+app.use(express.static('public'))
+
+// import ejs - the view engine will render our templates files .ejs in the folder views
 app.set('view engine', 'ejs'); 
 
 
