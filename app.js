@@ -26,6 +26,7 @@ let itemsWork = [];
 // -- urls / methods --
 app.get('/', function (req, res){
     let day = date.getDate();
+   console.log(date.function_with_arg(1)) // try module export with argument
 
     res.render('list', {listType : day, 
                         newItemList : items});

@@ -20,3 +20,7 @@ exports.getDay = function(){
     
     return day
 }
+
+exports.function_with_arg = function(a){
+    return a+1;
+}
