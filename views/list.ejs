@@ -10,12 +10,11 @@
 <body>
     <h1> <%= kindofDay %></h1>
 
+    <!-- list of items in the list -->
     <ul>
-        <li>Buy Food</li>
-        <li>Cook Food</li>
-        <li>Eat Food</li>
-
-        <li><%= newItemList %></li>
+        <% for (var item of newItemList) { %>
+        <li><%= item %></li>
+        <% } %> 
     </ul>
 
     <form class = "" action="/" method="POST">

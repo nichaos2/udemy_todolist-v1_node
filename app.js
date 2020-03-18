@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 
 // -- variables -- 
 
-var items = [];
+var items = ["Buy Food", "Cook Food", "Eat Food"];
 
 // -- urls / methods --
 app.get('/', function (req, res){
@@ -30,13 +30,8 @@ app.post('/', function(req, res){
     var newItem = req.body.newItem;
     items.push(newItem);
 
-    res.redirect('/');
+    res.redirect('/'); 
 });
-
-
-
-
-
 
 
 // -- port listen -- 
