@@ -11,10 +11,9 @@ app.set('view engine', 'ejs');
 
 // -- urls / methods --
 app.get('/', function (req, res){
-    msg = myfunction();
-     
-    //res.send(msg)
-    res.sendFile(__dirname + "/index.html")
+    day = myfunction();
+
+    res.render('list', {kindofDay: day});
 });
 
 app.listen(3000), function(){
@@ -24,14 +23,14 @@ app.listen(3000), function(){
 // -- functions --
 function myfunction(){
 
-    var today = new Date();
-    var msg = '';
+    var currentDay = new Date();
+    var day = '';
     
-    if (today.getDay() === 6 ||  today.getDay() === 0 ){
-        msg = 'It is the weekend';
+    if (currentDay.getDay() === 6 || currentDay.getDay() === 0 ){
+        day = 'weekend';
     }else{
-        msg = 'It is a work day :( ';
+        day = 'weekday :( ';
     }
 
-    return msg
+    return day
 }
